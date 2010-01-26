@@ -19,6 +19,10 @@
   <ul><% for entry in archives[1..-1] %>
     <li>
       <a href="<%= entry.url %>"><%= entry.title %></a>
+      <span class="wc">
+        <span class="separator">&middot;</span>
+        <%= entry[:body].scan(/\w+/).length %> words
+      </span>
       <span style="float: right" class="date"><%= entry.date %></span>
     </li>
   <% end %></ul>
