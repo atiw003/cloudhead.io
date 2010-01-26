@@ -14,8 +14,20 @@
       <%= yield %> 
     </section>
     <footer>
-      powered by <a href="http://github.com/cloudhead/toto">toto</a>
+      <p>powered by <a href="http://github.com/cloudhead/toto">toto</a></p>
+      <p>Copyright &copy; 2010 Alexis Sellier</a>
     </footer>
+    <script type="text/javascript" src="/js/hyphenator.js"></script>
+    <script type="text/javascript">
+      Hyphenator.run();
+      document.write(unescape("%3Cscript src='http://www.google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-9355683-3");
+        pageTracker._trackPageview();
+      } catch (err) {}
+    </script>
   </body>
 </html>
 
