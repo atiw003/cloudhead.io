@@ -15,6 +15,12 @@
 </section>
 
 <section id="archives">
-  <%= archives[3..-1] %>
+  <h2>archives</h2>
+  <ul><% for entry in archives[1..-1] %>
+    <li>
+      <a href="<%= entry.url %>"><%= entry.title %></a>
+      <span style="float: right" class="date"><%= entry.date %></span>
+    </li>
+  <% end %></ul>
 </section>
 
