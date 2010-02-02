@@ -13,6 +13,7 @@ toto = Toto::Server.new do
   set :date, lambda {|now| now.strftime("%B #{now.day.ordinal} %Y") }
   set :url, "http://cloudhead.io"
   set :root, 'index'
+  set :title, 'cloudhead.io'
 end
 
 run toto
