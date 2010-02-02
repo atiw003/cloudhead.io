@@ -1,30 +1,32 @@
-<section id="articles">
-  <% for article in articles[0...3] %>
-    <article class="post">
-      <header>
-        <h1><a href="<%= article.url %>"><%= article.title %></a></h1>
-        <span class="date"><%= article.date %></span>
-      </header>
+<em>Coming Soon</em>
+<% unless articles.empty? %>
+  <section id="articles">
+    <% for article in articles[0...3] %>
+      <article class="post">
+        <header>
+          <h1><a href="<%= article.url %>"><%= article.title %></a></h1>
+          <span class="date"><%= article.date %></span>
+        </header>
 
-      <section class="content hyphenate">
-        <%= article.summary %>
-      </section>
-      <div class="more"><a href="<%= article.url %>">read on &raquo;</a></div>
-    </article>
-  <% end %>
-</section>
+        <section class="content hyphenate">
+          <%= article.summary %>
+        </section>
+        <div class="more"><a href="<%= article.url %>">read on &raquo;</a></div>
+      </article>
+    <% end %>
+  </section>
 
-<section id="archives">
-  <h2>archives</h2>
-  <ul><% for entry in archives[1..-1] %>
-    <li>
-      <a href="<%= entry.url %>"><%= entry.title %></a>
-      <span class="wc">
-        <span class="separator">&middot;</span>
-        <%= entry[:body].scan(/\w+/).length %> words
-      </span>
-      <span style="float: right" class="date"><%= entry.date %></span>
-    </li>
-  <% end %></ul>
-</section>
-
+  <section id="archives">
+    <h2>archives</h2>
+    <ul><% for entry in archives[1..-1] %>
+      <li>
+        <a href="<%= entry.url %>"><%= entry.title %></a>
+        <span class="wc">
+          <span class="separator">&middot;</span>
+          <%= entry[:body].scan(/\w+/).length %> words
+        </span>
+        <span style="float: right" class="date"><%= entry.date %></span>
+      </li>
+    <% end %></ul>
+  </section>
+<% end %>
