@@ -101,6 +101,18 @@ $ git push remote master
 
 <p>Toto is built on top of <strong>Rack</strong>, and hence has a <strong>rackup</strong> file: <em>config.ru</em>.</p>
 
+<h4>on heroku</h4>
+
+<p>Toto was designed to work well with <a href="http://heroku.com">heroku</a>, it makes the most out of it's state-of-the-art caching, 
+by setting the <em>Cache-Control</em> and <em>Etag</em> HTTP headers. Deploying on Heroku is really easy, just get the heroku gem, 
+create a heroku app with <code>heroku create</code>, and push with <code>git push heroku master</code>.</p>
+
+<pre><code>$ heroku create
+$ heroku rename weblog
+$ git push heroku master
+$ heroku open
+</code></pre>
+
 <h4>on your own server</h4>
 
 <p>Once you have created the remote git repo, and pushed your changes to it, you can run toto with any Rack compliant web server, 
@@ -114,18 +126,6 @@ such as <strong>thin</strong>, <strong>mongrel</strong> or <strong>unicorn</stro
 <p>With unicorn, you can just do:</p>
 
 <pre><code>$ unicorn
-</code></pre>
-
-<h4>on heroku</h4>
-
-<p>Toto was designed to work well with <a href="http://heroku.com">heroku</a>, it makes the most out of it's state-of-the-art caching, 
-by setting the <em>Cache-Control</em> and <em>Etag</em> HTTP headers. Deploying on Heroku is really easy, just get the heroku gem, 
-create a heroku app with <code>heroku create</code>, and push with <code>git push heroku master</code>.</p>
-
-<pre><code>$ heroku create
-$ heroku rename weblog
-$ git push heroku master
-$ heroku open
 </code></pre>
 
 <h3>configuration</h3>
