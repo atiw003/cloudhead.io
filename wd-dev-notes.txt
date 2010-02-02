@@ -1,0 +1,31 @@
+WHO -> Consumers
+       - 'power' consumers
+       - people who like to share content
+       - people with strong brand/produce preferences
+       - opportunists, people who want to earn money easily
+
+WHY -> 
+      - get a social network presence
+      - grow our userbase
+      - reach out
+
+Dwellometer ->
+      - Doesn't show badges/statuses
+      - When you reach a percentile for the first time,
+        you earn a 'bronze' badge for that level.
+      - When you reach that status repeatedly, you earn the next
+        badge level, 'silver', then 'gold'.
+
+
+Badges ->
+      - Permanent unlockables
+
+Keys ->
+      - Temporary unlockables
+      - Special offers
+      - Access to VIP areas
+      - Point multipliers
+
+
+
+

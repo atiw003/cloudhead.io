@@ -49,8 +49,11 @@ header, footer, section, article {
 	font-size: 24px;
 	margin: -135px 0 0 70px;
 }
-#path {
-	color: #b53131;
+.path {
+	color: #888;
+}
+.path:first-letter {
+  color: #ddd;
 }
 a {
   color: #b83000;

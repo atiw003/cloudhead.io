@@ -1,0 +1,150 @@
+<% @url%>
+<style>
+  ul, li {
+    list-style-type: circle;
+  }
+  p { text-indent: 0}
+  body { width: 740px }
+  h3 { font-size: 140% }
+  h4 { font-size: 120% }
+
+  pre { padding: 0 0 0 25px}
+</style>
+
+<p>the tiniest blogging engine in Oz!</p>
+
+<h2>introduction</h2>
+
+<p>toto is a git-powered, minimalist blog engine for the hackers of Oz. The engine weights around ~300 sloc at its worse.
+There is no toto client, at least for now; everything goes through git.</p>
+
+<h2>philosophy</h2>
+
+<p>Everything that can be done better with another tool should be, but one should not have too much pie to stay fit.
+In other words, toto does away with web frameworks or DSLs such as sinatra, and is built right on top of <strong>rack</strong>.
+There is no database or ORM either, we use plain text files.
+Toto was designed to be used with a reverse-proxy cache, such as <a href="http://varnish-cache.org">Varnish</a>.
+This makes it an ideal candidate for <a href="http://heroku.com">heroku</a>.</p>
+
+<h2>how it works</h2>
+
+<ul>
+<li>content is entirely managed trough <strong>git</strong>; you get full fledged version control for free.</li>
+<li>articles are stored as <em>.txt</em> files, with embeded metadata (in yaml format).</li>
+<li>articles are processed through a markdown converter (rdiscount) by default.</li>
+<li>templating is done through <strong>ERB</strong>.</li>
+<li>toto is built right on top of <strong>Rack</strong>.</li>
+<li>toto was built to take advantage of <em>HTTP caching</em>.</li>
+<li>toto was built with heroku in mind.</li>
+<li>comments are handled by <a href="http://disqus.com">disqus</a></li>
+<li>individual articles can be accessed through urls such as <em>/2009/11/21/blogging-with-toto</em></li>
+<li>the archives can be accessed by year, month or day, wih the same format as above.</li>
+<li>arbitrary metadata can be included in articles files, and accessed from the templates.</li>
+<li>summaries are generated intelligently by toto, following the <code>:max</code> setting you give it.</li>
+<li>you can also define how long your summary is, by adding <code>~</code> at the end of it (<code>:delim</code>).</li>
+</ul>
+
+<h2>synopsis</h2>
+
+<p>One would start by forking or cloning the <code>dorothy</code> repo, to get a basic skeleton:</p>
+
+<pre><code>$ mkdir weblog/
+$ cd weblog/
+$ git clone git://github.com/cloudhead/dorothy.git .
+</code></pre>
+
+<p>One would then edit the template at will, it has the following structure:</p>
+
+<pre><code>templates/
+|
++- layout.rhtml      # the main site layout, shared by all pages
+|
++- feed.builder      # the builder template for the atom feed
+|
++- pages/            # pages, such as home, about, etc go here
+   |
+   +- index.rhtml    # the default page loaded from `/`, it displays the list of articles
+   |
+   +- article.rhtml  # the article (post) partial and page
+   |
+   +- about.rhtml
+</code></pre>
+
+<p>One could then create a .txt article file in the <code>articles/</code> folder, and make sure it has the following format:</p>
+
+<pre><code>title: The Wonderful Wizard of Oz
+author: Lyman Frank Baum
+date: 1900/05/17
+
+Dorothy lived in the midst of the great Kansas prairies, with Uncle Henry, 
+who was a farmer, and Aunt Em, who was the farmer's wife.
+</code></pre>
+
+<p>If one is familiar with webby or aerial, this shouldn't look funny. Basically the top of the file is in YAML format,
+and the rest of it is the blog post. They are delimited by an empty line <code>/\n\n/</code>, as you can see above.</p> 
+
+<p>None of the information is compulsory, but it's strongly encouraged you specify it.
+Note that one can also use <code>rake</code>to create an article stub, with<code>rake new</code>.</p>
+
+<p>Once he finishes writing his beautiful tale, one can push to the git repo, as usual:</p>
+
+<pre><code>$ git add articles/wizard-of-oz.txt
+$ git commit -m 'wrote the wizard of oz.'
+$ git push remote master
+</code></pre>
+
+<p>Where <code>remote</code> is the name of your remote git repository. The article is now published.</p>
+
+<h3>deployment</h3>
+
+<p>Toto is built on top of <strong>Rack</strong>, and hence has a <strong>rackup</strong> file: <em>config.ru</em>.</p>
+
+<h4>on your own server</h4>
+
+<p>Once you have created the remote git repo, and pushed your changes to it, you can run toto with any Rack compliant web server, 
+such as <strong>thin</strong>, <strong>mongrel</strong> or <strong>unicorn</strong>.</p>
+
+<p>With thin, you would do something like:</p>
+
+<pre><code>$ thin start -R config.ru
+</code></pre>
+
+<p>With unicorn, you can just do:</p>
+
+<pre><code>$ unicorn
+</code></pre>
+
+<h4>on heroku</h4>
+
+<p>Toto was designed to work well with <a href="http://heroku.com">heroku</a>, it makes the most out of it's state-of-the-art caching, 
+by setting the <em>Cache-Control</em> and <em>Etag</em> HTTP headers. Deploying on Heroku is really easy, just get the heroku gem, 
+create a heroku app with <code>heroku create</code>, and push with <code>git push heroku master</code>.</p>
+
+<pre><code>$ heroku create
+$ heroku rename weblog
+$ git push heroku master
+$ heroku open
+</code></pre>
+
+<h3>configuration</h3>
+
+<p>You can configure toto, by modifying the <em>config.ru</em> file. For example, if you want to set the blog author to 'John Galt',
+you could add <code>set :author, 'John Galt'</code> inside the <code>Toto::Server.new</code> block. Here are the defaults, to get you started: </p>
+
+<pre><code>set :author,    ENV['USER']                               # blog author 
+set :title,     Dir.pwd.split('/').last                   # site title
+set :root,      "index"                                   # page to load on / 
+set :date,      lambda {|now| now.strftime("%d/%m/%Y") }  # date format for articles 
+set :markdown,  :smart                                    # use markdown + smart-mode 
+set :disqus,    false                                     # disqus id, or false 
+set :summary,   :max =&gt; 150, :delim =&gt; /~/                # length of article summary and delimiter 
+set :ext,       'txt'                                     # file extension for articles
+</code></pre>
+
+<h2>thanks</h2>
+
+<p>To heroku for making this easy as pie.
+To adam wiggins, as I stole a couple of ideas from Scanty.
+To the developpers of Rack, for making such an awesome platform.</p>
+
+<p>Copyright (c) 2009 cloudhead. See LICENSE for details.</p>
