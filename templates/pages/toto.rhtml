@@ -1,5 +1,5 @@
 <a href="http://github.com/cloudhead/toto">
-  <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+  <img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/forkme.png" alt="Fork me on GitHub" />
 </a>
 
 <style>
@@ -8,17 +8,25 @@
   body { width: 740px }
   h3 { font-size: 140% }
   h4 { font-size: 120% }
+  strong { font-weight: 600 }
 
   code { font-size: 90% }
   pre { padding: 0 0 0 25px }
 </style>
 
-<p>the tiniest blogging engine in Oz!</p>
+<p><em>the tiniest blogging engine in Oz!</em></p>
 
 <h2>introduction</h2>
 
 <p>toto is a git-powered, minimalist blog engine for the hackers of Oz. The engine weights around ~230 sloc at its worse.
 There is no toto client, at least for now; everything goes through git.</p>
+
+<h2>blog in 10 seconds</h2>
+
+<p><pre><code>$ cd myblog
+$ git clone git://github.com/cloudhead/dorothy.git .
+$ heroku create
+$ git push heroku master</code></pre></p>
 
 <h2>philosophy</h2>
 

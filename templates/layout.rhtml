@@ -7,7 +7,15 @@
   </head>
   <body>
     <header>
-      <h1><a href="/">cloudhead<span id="ext">.io</span><span class="path">&mdash;<%= @path %></span></a></h1>
+    <h1><a href="<%= "/#{@path}" %>">
+      <% if @path.empty? || @path == 'index' %>
+        cloudhead<span id="ext">.io</span>
+      <% elsif @path == 'toto' %>
+        toto
+      <% else %>
+        <span class="path">&mdash;<%= @path %></span>
+      <% end %>
+    </a></h1>
     </header>
     <section>
       <%= yield %> 
