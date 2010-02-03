@@ -1,0 +1,43 @@
+<style>
+  .profile {
+    text-decoration: none;
+    font-size: 200%;
+    color: black;
+
+  }
+  .profile:hover {
+  
+    text-decoration: none;
+  }
+  .profile:hover:before {
+    color: #888;
+  }
+  .profile:hover:after {
+    color: #888;
+  }
+  .profile:before {
+    color: white;
+    content: "{";
+  }
+  .profile:after {
+    color: white;
+    content: "}";
+  }
+  .profiles {
+    margin: 50px 0;
+  }
+  .profiles li {
+    margin-left:20px;
+    margin-right:20px;
+    display: inline-block;
+  }
+  .profile li:first-child {
+  }
+</style>
+<div stlye="text-align: center">
+  <ul class="profiles">
+    <li><a class="profile" href="http://twitter.com/cloudhead">twitter</a></li>
+    <li><a class="profile" href="http://github.com/cloudhead">github</a></li>
+    <li><a class="profile" href="#">log</a></li>
+  </ul>
+</div>

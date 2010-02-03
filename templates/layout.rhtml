@@ -8,7 +8,7 @@
   <body>
     <header>
     <h1><a href="<%= "/#{@path}" %>">
-      <% if @path.empty? || @path == 'index' %>
+      <% if @path.empty? || @path == 'index' || @path == 'home' %>
         cloudhead<span id="ext">.io</span>
       <% elsif @path == 'toto' %>
         toto
