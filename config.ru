@@ -4,6 +4,10 @@ require 'toto'
 use Rack::Static, :urls => ['/css', '/js', '/images', '/favicon.ico'], :root => 'public'
 use Rack::CommonLogger
 
+if Toto.env == 'production'
+  use Rack::ShowExceptions
+end
+
 # Run application
 toto = Toto::Server.new do
   #
@@ -16,8 +20,6 @@ toto = Toto::Server.new do
   set :title, 'cloudhead.io'
 end
 
-run toto
-
 module Toto
   module Template
     def to_html page, &blk
@@ -26,4 +28,6 @@ module Toto
     end
   end
 end
+
+run toto
 
