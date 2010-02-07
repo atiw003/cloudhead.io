@@ -18,3 +18,12 @@ end
 
 run toto
 
+module Toto
+  module Template
+    def to_html page, &blk
+      path = (page == :layout ? Toto::Paths[:templates] : Toto::Paths[:pages])
+      ERB.new(File.read("#{path}/#{page.downcase}.rhtml")).result(binding)
+    end
+  end
+end
+
