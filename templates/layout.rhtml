@@ -10,7 +10,7 @@
     <h1><a href="<%= "/#{@path}" %>">
       <% if @path.empty? || @path == 'index' || @path == 'home' %>
         cloudhead<span id="ext">.io</span>
-      <% elsif @path.downcase == 'toto' %>
+      <% elsif @path.to_s.downcase == 'toto' %>
         toto
       <% else %>
         <span class="path">&mdash;<%= @path %></span>

@@ -4,7 +4,7 @@ require 'toto'
 use Rack::Static, :urls => ['/css', '/js', '/images', '/favicon.ico'], :root => 'public'
 use Rack::CommonLogger
 
-if Toto.env == 'production'
+if Toto.env == 'development'
   use Rack::ShowExceptions
 end
 
@@ -24,7 +24,7 @@ module Toto
   module Template
     def to_html page, &blk
       path = (page == :layout ? Toto::Paths[:templates] : Toto::Paths[:pages])
-      ERB.new(File.read("#{path}/#{page.downcase}.rhtml")).result(binding)
+      ERB.new(File.read("#{path}/#{page.to_s.downcase}.rhtml")).result(binding)
     end
   end
 end
