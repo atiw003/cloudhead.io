@@ -18,6 +18,10 @@ toto = Toto::Server.new do
   set :url, "http://cloudhead.io"
   set :root, 'home'
   set :title, 'cloudhead.io'
+  set :github, :user => 'cloudhead', :repos => [
+    'toto', 'mutter', 'eyes.js', 'cradle', 
+    'journey', 'vows.js', 'less', 'proto.js', 'koi'
+  ]
 end
 
 module Toto
