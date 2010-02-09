@@ -25,10 +25,10 @@ ul, li {
   list-style-type: none;
 }
 code {
-
   font-family: 'Anonymous Pro', 'Bitstream Vera Sans', 'Monaco', Courier, mono;
 }
 pre {
+  line-height: 1.4em;
   padding: 20px;
 }
 blockquote {
@@ -37,7 +37,6 @@ blockquote {
 header, footer, section, article {
 	display: block;
 }
-.markdown h1 { text-align: center !important }
 #content {
 }
 #by {
@@ -68,6 +67,11 @@ body > section > header > h1, .markdown h1 {
   font-size: 36px;
   margin: 25px 0 15px 15px;
   font-weight: normal;
+}
+.markdown h1 {
+  margin: 25px 0 15px 0 !important;
+  text-align: center !important;
+  padding-left: 0 !important;
 }
 body > section > header > h1 a,
 body > section > header > h1 a:hover {
