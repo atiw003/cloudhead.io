@@ -1,4 +1,4 @@
-html { margin: 20px }
+html { padding: 10px 20px 20px 20px }
 body {
   margin: 0 auto;
   font-family: 'Baskerville', Georgia, Times, serif;
@@ -9,7 +9,6 @@ body {
 
 }
 body > section > header, .markdown h1 {
-  padding-right: 30px;
   text-align: center;
 	display: block;
   border-bottom: 1px dotted #888;

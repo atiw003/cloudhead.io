@@ -5,7 +5,44 @@
     <link rel="alternate" type="application/atom+xml" title="<%= title %> - feed" href="/index.xml" />
     <title><%= title %></title>
   </head>
+  <style>
+    body > header {
+      text-align: right;
+      width: 740px;
+      position: absolute;
+      top: 10px;
+    }
+    body > header a {
+      color: #ddd;
+      font-style: italic;
+      text-decoration: none;
+    }
+    body > header:hover a {
+      color: #3e5d7c;
+      text-decoration: none;
+    }
+    body > header a:hover {
+      color: #b83000;
+    }
+    body > header li {
+      display: inline;
+      margin: 0 15px;
+    }
+    body > header ul {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
   <body>
+    <% if @path != 'home' %>
+      <header>
+        <ul>
+          <li><a href="http://cloudhead.io/">home</a></li>
+          <li><a href="http://github.com/cloudhead/">github</a></li>
+          <li><a href="http://twitter.com/cloudhead">twitter</a></li>
+        </ul>
+      </header>
+    <% end %>
     <section>
       <%= yield %> 
     </section>
