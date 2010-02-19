@@ -1,5 +1,3 @@
-Alexis Sellier
-==============
 
 You probably know me as `cloudhead`. I'm a hacker & artist from France, currently living in Montreal.
 I excell at creative problem solving, as well as building invaluable tools for developers.
@@ -10,8 +8,9 @@ which has allowed me to acquire a very broad skillset, not strictly limited to t
 experience
 ----------
 My experience ranges from game programming to web development, all through parsing, auditing and socket programming.
-I've enjoyed working with a wide array of technologies, including git, rack, MySQL, CouchDB, redis, MongoDB, nginx and
-Node.js, in languages such as ruby, javascript, C, C++, Objective-C, PHP and Java.
+I've enjoyed working with a wide array of technologies, including, but not limited to:
+git, MySQL, CouchDB, redis, MongoDB, nginx, thin, rack, Ruby on Rails, jQuery and Node.js,
+in languages such as ruby, javascript, C, C++, Objective-C, PHP and Java.
 
 I have commanding knowledge of the HTTP ecosystem, XHR and HTML/CSS.
 I am an extremely active open-source software developer, with many actively used projects.
@@ -32,10 +31,3 @@ I am happiest when working colaboratively, yet independently.
 
 I believe in code as art, and strive to reach that ideal as often as possible.
 
-works
------
-- LeSS: Leaner CSS, an extension to CSS, providing many dynamic constructs, in an effort to make style sheets more maintainable.
-- toto:
-- cradle:
-- vows:
-- journey
