@@ -8,6 +8,12 @@ if Toto.env == 'development'
   use Rack::ShowExceptions
 end
 
+class Toto::Site
+  def log *args
+    index *args
+  end
+end
+
 # Run application
 toto = Toto::Server.new do
   #

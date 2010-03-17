@@ -8,7 +8,7 @@
   <style>
     body > header {
       text-align: right;
-      width: 740px;
+      width: 720px;
       position: absolute;
       top: 10px;
     }
@@ -32,16 +32,23 @@
       margin: 0;
       padding: 0;
     }
+    body > header > span {
+      float: left;
+    }
   </style>
   <body>
     <% if @path != 'home' %>
       <header>
+        <span>
+          <a href="/">cloudhead<span id="ext">.io</span></a>
+        </span>
         <ul>
           <li><a href="http://cloudhead.io/">home</a></li>
           <li><a href="http://github.com/cloudhead/">github</a></li>
           <li><a href="http://twitter.com/cloudhead">twitter</a></li>
         </ul>
       </header>
+      <br /><br />
     <% end %>
     <section>
       <%= yield %> 

@@ -5,7 +5,7 @@ body {
   font-size: 20px;
   line-height: 1.5em;
   padding: 15px;
-  width: 640px;
+  width: 720px;
 
 }
 body > section > header, .markdown h1 {
@@ -132,7 +132,7 @@ body > section > header > h1 > a #ext {
 }
 .post p {
   text-indent: 15px;
-  margin: 10px 0;
+  margin: 15px 0;
 }
 .post .more {
   margin-right: 30px;
