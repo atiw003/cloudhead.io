@@ -23,6 +23,7 @@ toto = Toto::Server.new do
   set :date do |now|
     now.strftime("%B #{now.day.ordinal} %Y")
   end
+  set :disqus, "cloudheadio"
   set :url, "http://cloudhead.io"
   set :author, "cloudhead"
   set :root, 'home'
