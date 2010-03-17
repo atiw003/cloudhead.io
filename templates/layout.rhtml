@@ -54,7 +54,9 @@
       <%= yield %> 
     </section>
     <footer>
-      <p>powered by <a href="http://github.com/cloudhead/toto">toto</a></p>
+      <% if @path != "home"%>
+        <p>powered by <a href="http://github.com/cloudhead/toto">toto</a></p>
+      <% end %>
       <p>Copyright &copy; 2010 Alexis Sellier</a>
     </footer>
     <script type="text/javascript" src="/js/hyphenator.js"></script>
