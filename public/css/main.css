@@ -97,10 +97,15 @@ body > section > header > h1 > a #ext {
 }
 .post header h1 {
   display: block;
-  font-size: 28px;
+  font-size: 30px;
   padding-top: 5px;
   line-height: 1.2em;
   margin-bottom: 5px;
+}
+.post .content h2 {
+  display: block;
+  margin-top: 30px;
+  font-size: 26px;
 }
 .post header h1 a, #archives li a {
   text-decoration: none;
