@@ -201,18 +201,30 @@ body > footer p {
   margin: 8px 0;
   
 }
-.comments .dsq-options {
-  display: none !important;
-}
 #disqus_thread {
   margin-top: 30px;
 }
-#dsq-comments-title {
-  display: none !important;
+#dsq-form-area table {
+  width: 720px;
 }
-#disqus_thread h3 {
-  font-size: 200%;
-}
+.comments .dsq-options, #disqus_thread h3,
+#dsq-comments-title, #dsq-authenticate p,
 .dsq-brlink {
   display: none !important;
+}
+.dsq-subscribe-label {
+  font-size: 14px;
+}
+.dsq-post-fields input {
+  width: 90%;
+}
+.dsq-subscribe-menu input {
+  width: auto;
+}
+textarea {
+  font-size: 14px;
+}
+
+#dsq-textarea-wrapper iframe {
+  width: 100%;
 }
